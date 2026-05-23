@@ -5,39 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مهرجان تجمع فان كوخ - طاهر دوهان</title>
     <style>
-        :root { --primary: #0f172a; --accent: #b45309; --bg: #f8fafc; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #1e293b; text-align: right; }
-        .container { max-width: 700px; background: #fff; margin: auto; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 10px solid var(--primary); }
+        :root { --primary: #0f172a; --accent: #b45309; --bg: #f1f5f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); margin: 0; padding: 10px; color: #1e293b; text-align: right; }
+        .container { max-width: 600px; background: #ffffff; margin: 10px auto; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 8px solid var(--primary); }
         
-        .header { text-align: center; margin-bottom: 25px; }
-        .header h1 { color: var(--primary); margin: 0; font-size: 24px; }
-        .header p { color: var(--accent); font-weight: bold; font-size: 18px; margin: 8px 0; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .header h1 { color: var(--primary); font-size: 22px; margin: 0; }
+        .header p { color: var(--accent); font-weight: bold; margin: 5px 0; }
 
-        /* قسم الشروط */
-        .conditions-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 15px; border-radius: 12px; margin-bottom: 25px; }
-        .conditions-box h3 { margin-top: 0; color: #9a3412; font-size: 16px; border-bottom: 1px solid #fed7aa; padding-bottom: 8px; }
-        .conditions-box ul { padding-right: 20px; margin: 10px 0; font-size: 14px; line-height: 1.6; }
-        .agree-check { display: flex; align-items: flex-start; gap: 10px; background: #f1f5f9; padding: 10px; border-radius: 8px; cursor: pointer; }
-        .agree-check input { width: auto; margin-top: 4px; }
+        .conditions-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 15px; border-radius: 10px; margin-bottom: 20px; font-size: 13px; }
+        .conditions-box h3 { margin: 0 0 10px 0; color: #9a3412; font-size: 15px; }
+        .agree-check { display: flex; align-items: center; gap: 10px; background: #e2e8f0; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; }
 
-        .countdown-wrap { background: var(--primary); color: #fff; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 25px; }
-        #timer { display: flex; justify-content: center; gap: 15px; font-size: 18px; font-weight: bold; }
-        .t-box { display: flex; flex-direction: column; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 10px; min-width: 60px; }
-        .t-label { font-size: 11px; font-weight: normal; margin-top: 4px; }
+        .countdown-wrap { background: var(--primary); color: #fff; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
+        .timer-grid { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .t-box { background: rgba(255,255,255,0.1); padding: 8px; border-radius: 8px; min-width: 55px; }
+        .t-box span { display: block; font-size: 18px; font-weight: bold; }
+        .t-label { font-size: 10px; }
 
-        .section-title { background: #f1f5f9; padding: 10px; border-right: 5px solid var(--accent); margin: 25px 0 15px; font-weight: bold; color: var(--primary); }
-        .form-group { margin-bottom: 15px; }
+        .section-title { background: #f8fafc; padding: 8px; border-right: 4px solid var(--accent); margin: 20px 0 10px; font-weight: bold; color: var(--primary); }
+        .form-group { margin-bottom: 12px; }
         label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; font-size: 15px; font-family: inherit; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 15px; }
         
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
 
-        .btn-submit { width: 100%; background: #25d366; color: white; padding: 18px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 20px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
-        .btn-submit:hover { background: #128c7e; transform: scale(1.01); }
-        .btn-submit:disabled { background: #94a3b8; cursor: not-allowed; box-shadow: none; }
+        .btn-submit { width: 100%; background: #25d366; color: white; padding: 15px; border: none; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
+        .btn-submit:hover { background: #128c7e; }
+        .btn-submit:disabled { background: #94a3b8; cursor: not-allowed; }
         
-        #id_num_container { display: none; margin-top: 10px; border: 1px dashed var(--accent); padding: 10px; border-radius: 10px; background: #fffcf5; }
+        #id_num_container { display: none; margin-top: 10px; border: 1px dashed var(--accent); padding: 10px; border-radius: 8px; background: #fffcf5; }
         #status { text-align: center; margin-top: 15px; font-weight: bold; display: none; padding: 10px; border-radius: 8px; }
     </style>
 </head>
@@ -49,35 +47,32 @@
         <p>بإشراف  طاهر دوهان</p>
     </div>
 
-    <!-- قسم الشروط والموافقة -->
+    <!-- قسم الشروط -->
     <div class="conditions-box">
-        <h3>⚠️ شروط التسجيل في المهرجان</h3>
-        <ul>
-            <li>سيتم إرسال كافة البيانات المدخلة عبر تطبيق الواتساب الخاص بالفنان لتأكيد استلام الطلب.</li>
-            <li>يجب ملء كافة الحقول المطلوبة بدقة، وأي معلومات خاطئة قد تؤدي لإلغاء المشاركة.</li>
-            <li>يتم التواصل مع الفنانين المقبولين حصراً عبر الأرقام المذكورة في الاستمارة.</li>
-        </ul>
+        <h3>⚠️ تعليمات التسجيل</h3>
+        <p>يرجى العلم أنه بعد الضغط على "إرسال"، سيقوم الموقع بتحويلك لتطبيق الواتساب الخاص بك لتأكيد إرسال بياناتك للأستاذ طاهر.</p>
         <label class="agree-check">
-            <input type="checkbox" id="master_agree" required>
-            <span>أوافق على إرسال بياناتي عبر الواتساب وأقر بصحة جميع المعلومات الواردة في الاستمارة.</span>
+            <input type="checkbox" id="master_agree">
+            <span>أوافق على الشروط وصحة بياناتي</span>
         </label>
     </div>
 
+    <!-- العداد التنازلي -->
     <div class="countdown-wrap">
-        <div style="margin-bottom: 8px; font-size: 14px;">المتبقي على موعد 5 تموز</div>
-        <div id="timer">
-            <div class="t-box"><span id="days">0</span><span class="t-label">يوم</span></div>
-            <div class="t-box"><span id="hours">0</span><span class="t-label">ساعة</span></div>
-            <div class="t-box"><span id="minutes">0</span><span class="t-label">دقيقة</span></div>
-            <div class="t-box"><span id="seconds">0</span><span class="t-label">ثانية</span></div>
+        <div id="target-title" style="font-size: 13px;">المتبقي على انطلاق المهرجان (5 تموز)</div>
+        <div class="timer-grid">
+            <div class="t-box"><span id="days">0</span><div class="t-label">يوم</div></div>
+            <div class="t-box"><span id="hours">0</span><div class="t-label">ساعة</div></div>
+            <div class="t-box"><span id="minutes">0</span><div class="t-label">دقيقة</div></div>
+            <div class="t-box"><span id="seconds">0</span><div class="t-label">ثانية</div></div>
         </div>
     </div>
 
     <form id="artForm">
-        <div class="section-title">👤 المعلومات الشخصية</div>
+        <div class="section-title">👤 البيانات الشخصية</div>
         <div class="form-group">
             <label>الاسم الثلاثي للفنان:</label>
-            <input type="text" id="name" required placeholder="مثال:طاهر دوهان راضي ">
+            <input type="text" id="name" required>
         </div>
         <div class="grid">
             <div class="form-group">
@@ -90,11 +85,11 @@
             </div>
         </div>
         <div class="form-group">
-            <label>حسابات التواصل (إنستكرام / فيسبوك):</label>
-            <input type="text" id="social" placeholder="@username" required>
+            <label>حسابات التواصل (انستكرام ):</label>
+            <input type="text" id="social" required placeholder="مثال: @t2.4ll">
         </div>
 
-        <div class="section-title">🎨 معلومات المشاركة</div>
+        <div class="section-title">🎨 تفاصيل العمل الفني</div>
         <div class="grid">
             <div class="form-group">
                 <label>نوع المشاركة:</label>
@@ -114,18 +109,18 @@
         </div>
         <div class="grid">
             <div class="form-group">
-                <label>القياس:</label>
-                <input type="text" id="size" required placeholder="مثلاً 50x70">
+                <label>القياس (مثلاً 50x70):</label>
+                <input type="text" id="size" required>
             </div>
             <div class="form-group">
-                <label>صورة العمل (اختياري):</label>
+                <label>رفع صورة العمل (اختياري):</label>
                 <input type="file" id="artwork_file" accept="image/*">
             </div>
         </div>
 
         <div class="section-title">🛡️ أسئلة إضافية</div>
         <div class="form-group">
-            <label>هل شاركت سابقاً في مهرجان فان كوخ؟</label>
+            <label>هل شاركت سابقاً في المهرجان؟</label>
             <select id="prev_part">
                 <option value="لا">لا</option>
                 <option value="نعم">نعم</option>
@@ -139,8 +134,8 @@
             </select>
         </div>
         <div id="id_num_container">
-            <label>رقم الهوية:</label>
-            <input type="text" id="id_number" placeholder="أدخل رقم هويتك">
+            <label>رقم هوية التجمع:</label>
+            <input type="text" id="id_number">
         </div>
 
         <button type="submit" class="btn-submit" id="submitBtn">إرسال المشاركة الآن</button>
@@ -149,34 +144,35 @@
 </div>
 
 <script>
-    // --- بيانات البوت والرقم ---
+    // إعدادات البوت والواتساب
     const TOKEN = '8982595964:AAE0M14bJX2pcy041A7cuy8C9CpnGZ8lCu4';
     const CHAT_ID = '395764615';
-    const ADMIN_WHATSAPP = '9647823464275'; // ضع رقمك هنا بالصيغة الدولية (بدون أصفار)
+    const ADMIN_WHATSAPP = '9647823464275'; // تم وضع رقمك هنا بنجاح
 
     function toggleId() {
-        document.getElementById('id_num_container').style.display = (document.getElementById('has_id').value === 'نعم') ? 'block' : 'none';
+        const hasId = document.getElementById('has_id').value;
+        document.getElementById('id_num_container').style.display = (hasId === 'نعم') ? 'block' : 'none';
     }
 
-    // العداد التنازلي الذكي
-    function updateCountdown() {
-        const now = new Date();
-        let targetYear = now.getFullYear();
-        let target = new Date(`July 5, ${targetYear} 00:00:00`);
-        if (now > target) { target = new Date(`July 5, ${targetYear + 1} 00:00:00`); }
+    // برمجة العداد
+    function updateTimer() {
+        const target = new Date("July 5, 2026 00:00:00").getTime();
+        const now = new Date().getTime();
         const diff = target - now;
-        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        if (diff > 0) {
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }
     }
-    setInterval(updateCountdown, 1000);
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
     // معالجة الإرسال
-    document.getElementById('artForm').addEventListener('submit', async function(e) {
+    document.getElementById('artForm').onsubmit = async function(e) {
         e.preventDefault();
         
-        // التحقق من موافقة الشروط
         if(!document.getElementById('master_agree').checked) {
             alert("يرجى الموافقة على الشروط أولاً");
             return;
@@ -186,57 +182,59 @@
         const status = document.getElementById('status');
         btn.disabled = true;
         status.style.display = "block";
-        status.innerText = "⏳ جاري المعالجة والإرسال...";
+        status.style.background = "#f1f5f9";
+        status.innerText = "⏳ جاري إرسال بياناتك...";
 
-        const data = {
+        const formData = {
             name: document.getElementById('name').value,
             phone: document.getElementById('phone').value,
             city: document.getElementById('city').value,
-            social: document.getElementById('social').value,
-            type: document.getElementById('type').value,
             work: document.getElementById('work_title').value,
+            type: document.getElementById('type').value,
             size: document.getElementById('size').value,
+            social: document.getElementById('social').value,
             prev: document.getElementById('prev_part').value,
             hasId: document.getElementById('has_id').value,
             idNum: document.getElementById('id_number').value || 'لا يوجد'
         };
 
-        const text = `🎨 مشاركة مهرجان فان كوخ\n--------------------------\n👤 الفنان: ${data.name}\n📞 الهاتف: ${data.phone}\n📍 المحافظة: ${data.city}\n🔗 التواصل: ${data.social}\n🖼️ العمل: ${data.work}\n🎭 النوع: ${data.type}\n📏 القياس: ${data.size}\n✅ مشاركة سابقة: ${data.prev}\n🆔 هوية: ${data.hasId} (${data.idNum})`;
+        const messageText = `🎨 مشاركة جديدة في مهرجان فان كوخ\n------------------\n👤 الفنان: ${formData.name}\n📞 الهاتف: ${formData.phone}\n📍 المحافظة: ${formData.city}\n🔗 التواصل: ${formData.social}\n🖼️ العمل: ${formData.work}\n🎭 النوع: ${formData.type}\n📏 القياس: ${formData.size}\n✅ مشاركة سابقة: ${formData.prev}\n🆔 هوية: ${formData.hasId} (${formData.idNum})`;
 
         try {
-            // 1. التليجرام
+            // إرسال للتليجرام
             await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: CHAT_ID, text: text })
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ chat_id: CHAT_ID, text: messageText })
             });
 
+            // إرسال الصورة للتليجرام إن وجدت
             const fileInput = document.getElementById('artwork_file');
             if (fileInput.files.length > 0) {
-                const formData = new FormData();
-                formData.append('chat_id', CHAT_ID);
-                formData.append('photo', fileInput.files[0]);
-                formData.append('caption', `صورة عمل الفنان: ${data.name}`);
-                await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, { method: 'POST', body: formData });
+                const imgData = new FormData();
+                imgData.append('chat_id', CHAT_ID);
+                imgData.append('photo', fileInput.files[0]);
+                imgData.append('caption', `عمل الفنان: ${formData.name}`);
+                await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, { method: 'POST', body: imgData });
             }
 
-            // 2. التحويل للواتساب
-            const waUrl = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(text)}`;
+            // التحويل للواتساب
             status.style.background = "#dcfce7";
-            status.innerText = "✅ تم الإرسال بنجاح! سيفتح الواتساب لتأكيد طلبك...";
+            status.innerText = "✅ تم الإرسال للتليجرام! يتم الآن فتح واتساب لتأكيد الطلب...";
+            
+            const waUrl = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(messageText)}`;
             
             setTimeout(() => {
-                window.open(waUrl, '_blank');
-                document.getElementById('artForm').reset();
+                window.location.href = waUrl;
                 btn.disabled = false;
             }, 1500);
 
         } catch (err) {
             status.style.background = "#fee2e2";
-            status.innerText = "❌ حدث خطأ، يرجى المحاولة لاحقاً.";
+            status.innerText = "❌ فشل الإرسال، تأكد من الإنترنت وحاول مجدداً.";
             btn.disabled = false;
         }
-    });
+    };
 </script>
 
 </body>
