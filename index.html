@@ -13,7 +13,13 @@
         .header h1 { color: var(--primary); margin: 0; font-size: 24px; }
         .header p { color: var(--accent); font-weight: bold; font-size: 18px; margin: 8px 0; }
 
-        /* العداد المحدث */
+        /* قسم الشروط */
+        .conditions-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 15px; border-radius: 12px; margin-bottom: 25px; }
+        .conditions-box h3 { margin-top: 0; color: #9a3412; font-size: 16px; border-bottom: 1px solid #fed7aa; padding-bottom: 8px; }
+        .conditions-box ul { padding-right: 20px; margin: 10px 0; font-size: 14px; line-height: 1.6; }
+        .agree-check { display: flex; align-items: flex-start; gap: 10px; background: #f1f5f9; padding: 10px; border-radius: 8px; cursor: pointer; }
+        .agree-check input { width: auto; margin-top: 4px; }
+
         .countdown-wrap { background: var(--primary); color: #fff; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 25px; }
         #timer { display: flex; justify-content: center; gap: 15px; font-size: 18px; font-weight: bold; }
         .t-box { display: flex; flex-direction: column; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 10px; min-width: 60px; }
@@ -27,9 +33,9 @@
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 
-        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 18px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 20px; }
-        .btn-submit:hover { background: #1e293b; transform: scale(1.01); }
-        .btn-submit:disabled { background: #64748b; cursor: not-allowed; }
+        .btn-submit { width: 100%; background: #25d366; color: white; padding: 18px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 20px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        .btn-submit:hover { background: #128c7e; transform: scale(1.01); }
+        .btn-submit:disabled { background: #94a3b8; cursor: not-allowed; box-shadow: none; }
         
         #id_num_container { display: none; margin-top: 10px; border: 1px dashed var(--accent); padding: 10px; border-radius: 10px; background: #fffcf5; }
         #status { text-align: center; margin-top: 15px; font-weight: bold; display: none; padding: 10px; border-radius: 8px; }
@@ -43,9 +49,22 @@
         <p>بإشراف  طاهر دوهان</p>
     </div>
 
-    <!-- قسم العداد التنازلي -->
+    <!-- قسم الشروط والموافقة -->
+    <div class="conditions-box">
+        <h3>⚠️ شروط التسجيل في المهرجان</h3>
+        <ul>
+            <li>سيتم إرسال كافة البيانات المدخلة عبر تطبيق الواتساب الخاص بالفنان لتأكيد استلام الطلب.</li>
+            <li>يجب ملء كافة الحقول المطلوبة بدقة، وأي معلومات خاطئة قد تؤدي لإلغاء المشاركة.</li>
+            <li>يتم التواصل مع الفنانين المقبولين حصراً عبر الأرقام المذكورة في الاستمارة.</li>
+        </ul>
+        <label class="agree-check">
+            <input type="checkbox" id="master_agree" required>
+            <span>أوافق على إرسال بياناتي عبر الواتساب وأقر بصحة جميع المعلومات الواردة في الاستمارة.</span>
+        </label>
+    </div>
+
     <div class="countdown-wrap">
-        <div id="target-title" style="margin-bottom: 8px; font-size: 14px;">المتبقي على موعد 5 تموز</div>
+        <div style="margin-bottom: 8px; font-size: 14px;">المتبقي على موعد 5 تموز</div>
         <div id="timer">
             <div class="t-box"><span id="days">0</span><span class="t-label">يوم</span></div>
             <div class="t-box"><span id="hours">0</span><span class="t-label">ساعة</span></div>
@@ -58,11 +77,11 @@
         <div class="section-title">👤 المعلومات الشخصية</div>
         <div class="form-group">
             <label>الاسم الثلاثي للفنان:</label>
-            <input type="text" id="name" required placeholder="مثال: طاهر دوهان">
+            <input type="text" id="name" required placeholder="مثال:طاهر دوهان راضي ">
         </div>
         <div class="grid">
             <div class="form-group">
-                <label>رقم الهاتف (واتساب):</label>
+                <label>رقم الهاتف:</label>
                 <input type="tel" id="phone" required placeholder="07xxxxxxxxx">
             </div>
             <div class="form-group">
@@ -70,27 +89,17 @@
                 <input type="text" id="city" required>
             </div>
         </div>
-        <div class="grid">
-            <div class="form-group">
-                <label>العمر:</label>
-                <input type="number" id="age" required>
-            </div>
-            <div class="form-group">
-                <label>البريد الإلكتروني (اختياري):</label>
-                <input type="email" id="email">
-            </div>
-        </div>
         <div class="form-group">
             <label>حسابات التواصل (إنستكرام / فيسبوك):</label>
-            <input type="text" id="social" placeholder="رابط الحساب أو اليوزر نيم" required>
+            <input type="text" id="social" placeholder="@username" required>
         </div>
 
-        <div class="section-title">🎨 معلومات العمل الفني</div>
+        <div class="section-title">🎨 معلومات المشاركة</div>
         <div class="grid">
             <div class="form-group">
                 <label>نوع المشاركة:</label>
                 <select id="type" required>
-                    <option value="">اختر...</option>
+                    <option value="">اختر النوع...</option>
                     <option value="لوحة فنية">لوحة فنية</option>
                     <option value="تصوير">تصوير</option>
                     <option value="خط عربي">خط عربي</option>
@@ -103,23 +112,15 @@
                 <input type="text" id="work_title" required>
             </div>
         </div>
-        <div class="form-group">
-            <label>وصف بسيط للعمل:</label>
-            <textarea id="desc" rows="3" placeholder="تكلم عن فكرة عملك..."></textarea>
-        </div>
         <div class="grid">
             <div class="form-group">
-                <label>قياس العمل:</label>
-                <input type="text" id="size" placeholder="مثلاً 50x70" required>
+                <label>القياس:</label>
+                <input type="text" id="size" required placeholder="مثلاً 50x70">
             </div>
             <div class="form-group">
-                <label>عدد الأعمال:</label>
-                <input type="number" id="count" value="1" min="1">
+                <label>صورة العمل (اختياري):</label>
+                <input type="file" id="artwork_file" accept="image/*">
             </div>
-        </div>
-        <div class="form-group">
-            <label>رفع صورة للعمل الفني (اختياري):</label>
-            <input type="file" id="artwork_file" accept="image/*">
         </div>
 
         <div class="section-title">🛡️ أسئلة إضافية</div>
@@ -138,8 +139,8 @@
             </select>
         </div>
         <div id="id_num_container">
-            <label>رقم هوية تجمع فان كوخ:</label>
-            <input type="text" id="id_number" placeholder="اكتب رقم هويتك">
+            <label>رقم الهوية:</label>
+            <input type="text" id="id_number" placeholder="أدخل رقم هويتك">
         </div>
 
         <button type="submit" class="btn-submit" id="submitBtn">إرسال المشاركة الآن</button>
@@ -148,107 +149,91 @@
 </div>
 
 <script>
+    // --- بيانات البوت والرقم ---
     const TOKEN = '8982595964:AAE0M14bJX2pcy041A7cuy8C9CpnGZ8lCu4';
     const CHAT_ID = '395764615';
+    const ADMIN_WHATSAPP = '9647823464275'; // ضع رقمك هنا بالصيغة الدولية (بدون أصفار)
 
-    // إظهار وإخفاء حقل الهوية
     function toggleId() {
-        const hasId = document.getElementById('has_id').value;
-        const container = document.getElementById('id_num_container');
-        container.style.display = (hasId === 'نعم') ? 'block' : 'none';
+        document.getElementById('id_num_container').style.display = (document.getElementById('has_id').value === 'نعم') ? 'block' : 'none';
     }
 
-    // العداد التنازلي الذكي (يحدث نفسه تلقائياً)
+    // العداد التنازلي الذكي
     function updateCountdown() {
         const now = new Date();
         let targetYear = now.getFullYear();
-        
-        // ضبط تاريخ الهدف ليكون 5 تموز من السنة الحالية
-        let targetDate = new Date(`July 5, ${targetYear} 00:00:00`);
-
-        // إذا مر تاريخ 5 تموز في السنة الحالية، حول العداد للسنة القادمة
-        if (now > targetDate) {
-            targetYear++;
-            targetDate = new Date(`July 5, ${targetYear} 00:00:00`);
-        }
-
-        const diff = targetDate - now;
-
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById("days").innerText = d;
-        document.getElementById("hours").innerText = h;
-        document.getElementById("minutes").innerText = m;
-        document.getElementById("seconds").innerText = s;
-        document.getElementById("target-title").innerText = `المتبقي على 5 تموز ${targetYear}`;
+        let target = new Date(`July 5, ${targetYear} 00:00:00`);
+        if (now > target) { target = new Date(`July 5, ${targetYear + 1} 00:00:00`); }
+        const diff = target - now;
+        document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
     }
-    
     setInterval(updateCountdown, 1000);
-    updateCountdown();
 
-    // إرسال البيانات للتليجرام
+    // معالجة الإرسال
     document.getElementById('artForm').addEventListener('submit', async function(e) {
         e.preventDefault();
+        
+        // التحقق من موافقة الشروط
+        if(!document.getElementById('master_agree').checked) {
+            alert("يرجى الموافقة على الشروط أولاً");
+            return;
+        }
+
         const btn = document.getElementById('submitBtn');
         const status = document.getElementById('status');
-        
         btn.disabled = true;
         status.style.display = "block";
-        status.style.background = "#f1f5f9";
-        status.innerText = "⏳ جاري إرسال بياناتك...";
+        status.innerText = "⏳ جاري المعالجة والإرسال...";
 
-        const msgText = `
-🎨 *مشاركة جديدة - مهرجان فان كوخ*
---------------------------
-👤 *الفنان:* ${document.getElementById('name').value}
-📞 *الهاتف:* ${document.getElementById('phone').value}
-📍 *المحافظة:* ${document.getElementById('city').value}
-🎂 *العمر:* ${document.getElementById('age').value}
-🔗 *التواصل:* ${document.getElementById('social').value}
-📧 *الإيميل:* ${document.getElementById('email').value || '---'}
---------------------------
-🖼️ *العمل:* ${document.getElementById('work_title').value}
-🎭 *النوع:* ${document.getElementById('type').value}
-📏 *القياس:* ${document.getElementById('size').value}
-🔢 *العدد:* ${document.getElementById('count').value}
-📝 *الوصف:* ${document.getElementById('desc').value || 'لا يوجد'}
---------------------------
-✅ *مشاركة سابقة:* ${document.getElementById('prev_part').value}
-🆔 *يملك هوية:* ${document.getElementById('has_id').value}
-🔢 *رقم الهوية:* ${document.getElementById('id_number').value || '---'}
-        `;
+        const data = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            city: document.getElementById('city').value,
+            social: document.getElementById('social').value,
+            type: document.getElementById('type').value,
+            work: document.getElementById('work_title').value,
+            size: document.getElementById('size').value,
+            prev: document.getElementById('prev_part').value,
+            hasId: document.getElementById('has_id').value,
+            idNum: document.getElementById('id_number').value || 'لا يوجد'
+        };
+
+        const text = `🎨 مشاركة مهرجان فان كوخ\n--------------------------\n👤 الفنان: ${data.name}\n📞 الهاتف: ${data.phone}\n📍 المحافظة: ${data.city}\n🔗 التواصل: ${data.social}\n🖼️ العمل: ${data.work}\n🎭 النوع: ${data.type}\n📏 القياس: ${data.size}\n✅ مشاركة سابقة: ${data.prev}\n🆔 هوية: ${data.hasId} (${data.idNum})`;
 
         try {
-            // 1. إرسال النص
+            // 1. التليجرام
             await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: CHAT_ID, text: msgText, parse_mode: 'Markdown' })
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text })
             });
 
-            // 2. إرسال الصورة (إن وجدت)
             const fileInput = document.getElementById('artwork_file');
             if (fileInput.files.length > 0) {
                 const formData = new FormData();
                 formData.append('chat_id', CHAT_ID);
                 formData.append('photo', fileInput.files[0]);
-                formData.append('caption', `صورة عمل الفنان: ${document.getElementById('name').value}`);
+                formData.append('caption', `صورة عمل الفنان: ${data.name}`);
                 await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, { method: 'POST', body: formData });
             }
 
+            // 2. التحويل للواتساب
+            const waUrl = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(text)}`;
             status.style.background = "#dcfce7";
-            status.style.color = "#166534";
-            status.innerText = "✅ تم الإرسال بنجاح! شكراً لك.";
-            document.getElementById('artForm').reset();
-            toggleId();
+            status.innerText = "✅ تم الإرسال بنجاح! سيفتح الواتساب لتأكيد طلبك...";
+            
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+                document.getElementById('artForm').reset();
+                btn.disabled = false;
+            }, 1500);
+
         } catch (err) {
             status.style.background = "#fee2e2";
-            status.style.color = "#991b1b";
-            status.innerText = "❌ حدث خطأ في الإرسال، حاول مرة أخرى.";
-        } finally {
+            status.innerText = "❌ حدث خطأ، يرجى المحاولة لاحقاً.";
             btn.disabled = false;
         }
     });
