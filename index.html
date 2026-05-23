@@ -6,139 +6,120 @@
     <title>مهرجان فان كوخ - طاهر دوهان</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e67e22;
-            --bg-color: #f8f9fa;
+            --primary-blue: #00a8e8;
+            --dark-blue: #2c3e50;
+            --bg-color: #f4f7f9;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             color: #333;
         }
         .container {
-            max-width: 800px;
+            max-width: 700px;
             background: #fff;
             margin: auto;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-top: 8px solid var(--accent-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--primary-blue);
         }
-        .header-top {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header-top h1 {
-            color: var(--primary-color);
-            margin: 0;
-            font-size: 28px;
-        }
-        .header-top p {
-            color: #666;
-            font-size: 18px;
-            margin-top: 5px;
-        }
+        .logo-container { text-align: center; margin-bottom: 15px; }
+        .logo-container img { max-width: 150px; height: auto; border-radius: 10px; }
+
+        .header-top { text-align: center; margin-bottom: 25px; }
+        .header-top h1 { color: var(--dark-blue); font-size: 24px; margin: 5px 0; }
+        .designer { color: var(--primary-blue); font-weight: bold; font-size: 14px; }
 
         /* العداد التنازلي */
         .countdown-container {
-            background: var(--primary-color);
+            background: var(--dark-blue);
             color: white;
-            padding: 20px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         #countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            font-size: 20px;
-            font-weight: bold;
+            gap: 10px;
+            margin-top: 10px;
         }
         .time-box {
-            display: flex;
-            flex-direction: column;
             background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 70px;
+            padding: 8px;
+            border-radius: 5px;
+            min-width: 60px;
         }
+        .time-box span { display: block; font-size: 20px; font-weight: bold; }
 
         /* تنسيق الحقول */
         .section-title {
-            background: #f0f2f5;
-            padding: 10px 15px;
+            background: #e1f5fe;
+            padding: 10px;
             border-radius: 5px;
-            margin: 25px 0 15px 0;
-            color: var(--primary-color);
+            margin: 20px 0 15px 0;
+            color: var(--dark-blue);
             font-weight: bold;
-            border-right: 5px solid var(--accent-color);
+            border-right: 5px solid var(--primary-blue);
         }
-        .form-group {
-            margin-bottom: 18px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
         input, select, textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 8px;
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
         }
-        textarea { height: 100px; resize: vertical; }
-        
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            padding: 10px 0;
-        }
-        .radio-group label {
-            font-weight: normal;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .radio-group input { width: auto; }
+        input:focus { border-color: var(--primary-blue); outline: none; }
 
-        .btn-submit {
-            width: 100%;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 18px;
+        .button-group { display: flex; gap: 10px; margin-top: 25px; }
+        .btn {
+            padding: 15px;
             border: none;
-            border-radius: 10px;
-            font-size: 20px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
-            margin-top: 20px;
+            transition: 0.2s;
+            font-size: 16px;
         }
-        .btn-submit:hover { background-color: #d35400; }
+        .btn-submit { background: var(--primary-blue); color: white; flex: 2; }
+        .btn-print { background: #eee; color: #333; flex: 1; }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
-        @media (max-width: 600px) {
-            #countdown { gap: 10px; font-size: 14px; }
-            .container { padding: 20px; }
+        /* للطباعة */
+        @media print {
+            .countdown-container, .button-group { display: none !important; }
+            .container { box-shadow: none; border: 1px solid #ddd; width: 100%; }
+            body { background: white; }
+        }
+
+        @media (max-width: 500px) {
+            .button-group { flex-direction: column; }
+            #countdown { font-size: 12px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-top">
-        <h1>مهرجان تجمع فان كوخ الفني</h1>
-        <p>بإشراف الفنان طاهر دوهان</p>
+    <div class="logo-container">
+        <!-- سيحاول تحميل logo.png وإذا لم يجدها سيضع مساحة فارغة بدلاً من التعليق -->
+        <img src="logo.png" alt="شعار المنظمة" onerror="this.style.display='none'">
     </div>
 
-    <!-- العداد التنازلي -->
+    <div class="header-top">
+        <h1>مهرجان تجمع فان كوخ الفني</h1>
+        <div class="designer">تم التصميم من قبل طاهر دوهان</div>
+    </div>
+
     <div class="countdown-container">
-        <p>المتبقي لبداية المهرجان (5 تموز 2026):</p>
+        <small>المتبقي للمهرجان (5 تموز 2026)</small>
         <div id="countdown">
             <div class="time-box"><span id="days">00</span>يوم</div>
             <div class="time-box"><span id="hours">00</span>ساعة</div>
@@ -147,46 +128,41 @@
         </div>
     </div>
 
-    <form action="https://formspree.io/f/xojblaon" method="POST" enctype="multipart/form-data">
+    <!-- تم حذف enctype لتسريع عملية الإرسال ومنع التعليق -->
+    <form id="artForm" action="https://formspree.io/f/xojblaon" method="POST">
         
-        <div class="section-title">أولاً: المعلومات الشخصية</div>
+        <div class="section-title">المعلومات الشخصية</div>
         
         <div class="form-group">
-            <label>الاسم الثلاثي للفنان:</label>
-            <input type="text" name="الاسم الثلاثي" required>
+            <label>الاسم الثلاثي:</label>
+            <input type="text" name="name" required>
         </div>
 
         <div class="form-group">
-            <label>رقم الهاتف:</label>
-            <input type="text" name="رقم الهاتف" required>
+            <label>رقم الهاتف (واتساب):</label>
+            <input type="text" name="phone" required>
         </div>
 
         <div class="form-group">
-            <label>المحافظة / المدينة:</label>
-            <input type="text" name="المحافظة" required>
+            <label>المحافظة:</label>
+            <input type="text" name="city" required>
         </div>
 
         <div class="form-group">
-            <label>العمر:</label>
-            <input type="text" name="العمر" required>
+            <label>رقم الهوية الفنية:</label>
+            <input type="text" name="id_art" required>
         </div>
 
         <div class="form-group">
-            <label>البريد الإلكتروني (اختياري):</label>
-            <input type="email" name="الايميل">
+            <label>الرقم التسلسلي للبطاقة:</label>
+            <input type="text" name="serial" required>
         </div>
 
-        <div class="form-group">
-            <label>حسابات التواصل (إنستكرام / فيسبوك):</label>
-            <input type="text" name="حسابات التواصل" placeholder="@username أو رابط الحساب">
-        </div>
-
-        <div class="section-title">ثانياً: معلومات المشاركة</div>
+        <div class="section-title">تفاصيل المشاركة</div>
 
         <div class="form-group">
             <label>نوع المشاركة:</label>
-            <select name="نوع المشاركة" required>
-                <option value="">-- اختر النوع --</option>
+            <select name="type" required>
                 <option value="لوحة فنية">لوحة فنية</option>
                 <option value="تصوير">تصوير</option>
                 <option value="خط عربي">خط عربي</option>
@@ -197,77 +173,59 @@
 
         <div class="form-group">
             <label>عنوان العمل الفني:</label>
-            <input type="text" name="عنوان العمل" required>
+            <input type="text" name="title" required>
         </div>
 
         <div class="form-group">
-            <label>وصف بسيط للعمل:</label>
-            <textarea name="وصف العمل" placeholder="اكتب نبذة عن فكرة العمل..."></textarea>
+            <label>القياس:</label>
+            <input type="text" name="size" placeholder="مثال: 50x70 سم" required>
         </div>
 
         <div class="form-group">
-            <label>قياس اللوحة أو العمل:</label>
-            <input type="text" name="القياس" placeholder="مثلاً 50x70 سم" required>
+            <label>وصف العمل:</label>
+            <textarea name="description"></textarea>
         </div>
 
-        <div class="form-group">
-            <label>عدد الأعمال المشاركة:</label>
-            <input type="number" name="عدد الاعمال" min="1" max="5" value="1">
+        <div class="button-group">
+            <button type="submit" class="btn btn-submit">إرسال التسجيل الآن 🚀</button>
+            <button type="button" class="btn btn-print" onclick="window.print()">طباعة الوصل 🖨️</button>
         </div>
-
-        <div class="form-group">
-            <label>رفع صور العمل الفني (حتى 5 صور):</label>
-            <input type="file" name="صور العمل" accept="image/*" multiple>
-        </div>
-
-        <div class="section-title">ثالثاً: أسئلة إضافية</div>
-
-        <div class="form-group">
-            <label>هل شاركت من قبل في مهرجان فان كوخ؟</label>
-            <div class="radio-group">
-                <label><input type="radio" name="مشاركة سابقة" value="نعم"> نعم</label>
-                <label><input type="radio" name="مشاركة سابقة" value="لا"> لا</label>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>هل عندك هوية صادرة من تجمع فان كوخ؟</label>
-            <div class="radio-group">
-                <label><input type="radio" name="لديه هوية" value="نعم"> نعم</label>
-                <label><input type="radio" name="لديه هوية" value="لا"> لا</label>
-            </div>
-        </div>
-
-        <button type="submit" class="btn-submit">إرسال استمارة التسجيل</button>
 
     </form>
 </div>
 
 <script>
-    // برمجة العداد التنازلي لـ 5 يوليو 2026
+    // برمجة العداد التنازلي بدقة
     function updateCountdown() {
-        const targetDate = new Date("July 5, 2026 00:00:00").getTime();
+        const target = new Date("July 5, 2026 00:00:00").getTime();
         const now = new Date().getTime();
-        const gap = targetDate - now;
+        const diff = target - now;
 
-        if (gap <= 0) {
+        if (diff <= 0) {
             document.getElementById("countdown").innerHTML = "انطلق المهرجان!";
             return;
         }
 
-        const second = 1000;
-        const minute = second * 60;
-        const hour = minute * 60;
-        const day = hour * 24;
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-        document.getElementById("days").innerText = Math.floor(gap / day);
-        document.getElementById("hours").innerText = Math.floor((gap % day) / hour);
-        document.getElementById("minutes").innerText = Math.floor((gap % hour) / minute);
-        document.getElementById("seconds").innerText = Math.floor((gap % minute) / second);
+        document.getElementById("days").innerText = d;
+        document.getElementById("hours").innerText = h;
+        document.getElementById("minutes").innerText = m;
+        document.getElementById("seconds").innerText = s;
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // منع الإرسال المتكرر عند الضغط مرة واحدة
+    document.getElementById('artForm').onsubmit = function() {
+        const btn = this.querySelector('.btn-submit');
+        btn.innerText = "جاري الإرسال...";
+        btn.style.opacity = "0.5";
+        btn.style.pointerEvents = "none";
+    };
 </script>
 
 </body>
