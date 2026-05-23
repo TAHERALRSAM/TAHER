@@ -3,208 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهرجان فان كوخ - طاهر دوهان</title>
+    <title>مهرجان تجمع فان كوخ - طاهر دوهان</title>
     <style>
-        :root {
-            --primary-blue: #00a8e8;
-            --dark-blue: #2c3e50;
-            --bg-color: #f4f7f9;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 15px;
-            color: #333;
-        }
-        .container {
-            max-width: 700px;
-            background: #fff;
-            margin: auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-top: 8px solid var(--primary-blue);
-        }
-        .logo-container { text-align: center; margin-bottom: 15px; }
-        .logo-container img { max-width: 150px; height: auto; border-radius: 10px; }
+        :root { --primary: #0f172a; --accent: #b45309; --bg: #f8fafc; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #1e293b; text-align: right; }
+        .container { max-width: 700px; background: #fff; margin: auto; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 10px solid var(--primary); }
+        
+        .header { text-align: center; margin-bottom: 25px; }
+        .header h1 { color: var(--primary); margin: 0; font-size: 24px; }
+        .header p { color: var(--accent); font-weight: bold; font-size: 18px; margin: 8px 0; }
 
-        .header-top { text-align: center; margin-bottom: 25px; }
-        .header-top h1 { color: var(--dark-blue); font-size: 24px; margin: 5px 0; }
-        .designer { color: var(--primary-blue); font-weight: bold; font-size: 14px; }
+        /* العداد المحدث */
+        .countdown-wrap { background: var(--primary); color: #fff; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 25px; }
+        #timer { display: flex; justify-content: center; gap: 15px; font-size: 18px; font-weight: bold; }
+        .t-box { display: flex; flex-direction: column; background: rgba(255,255,255,0.1); padding: 8px; border-radius: 10px; min-width: 60px; }
+        .t-label { font-size: 11px; font-weight: normal; margin-top: 4px; }
 
-        /* العداد التنازلي */
-        .countdown-container {
-            background: var(--dark-blue);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        #countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .time-box {
-            background: rgba(255,255,255,0.1);
-            padding: 8px;
-            border-radius: 5px;
-            min-width: 60px;
-        }
-        .time-box span { display: block; font-size: 20px; font-weight: bold; }
-
-        /* تنسيق الحقول */
-        .section-title {
-            background: #e1f5fe;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 20px 0 15px 0;
-            color: var(--dark-blue);
-            font-weight: bold;
-            border-right: 5px solid var(--primary-blue);
-        }
+        .section-title { background: #f1f5f9; padding: 10px; border-right: 5px solid var(--accent); margin: 25px 0 15px; font-weight: bold; color: var(--primary); }
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 15px;
-        }
-        input:focus { border-color: var(--primary-blue); outline: none; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; font-size: 15px; font-family: inherit; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
 
-        .button-group { display: flex; gap: 10px; margin-top: 25px; }
-        .btn {
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 16px;
-        }
-        .btn-submit { background: var(--primary-blue); color: white; flex: 2; }
-        .btn-print { background: #eee; color: #333; flex: 1; }
-        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
-
-        /* للطباعة */
-        @media print {
-            .countdown-container, .button-group { display: none !important; }
-            .container { box-shadow: none; border: 1px solid #ddd; width: 100%; }
-            body { background: white; }
-        }
-
-        @media (max-width: 500px) {
-            .button-group { flex-direction: column; }
-            #countdown { font-size: 12px; }
-        }
+        .btn-submit { width: 100%; background: var(--primary); color: white; padding: 18px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        .btn-submit:hover { background: #1e293b; transform: scale(1.01); }
+        .btn-submit:disabled { background: #64748b; cursor: not-allowed; }
+        
+        #id_num_container { display: none; margin-top: 10px; border: 1px dashed var(--accent); padding: 10px; border-radius: 10px; background: #fffcf5; }
+        #status { text-align: center; margin-top: 15px; font-weight: bold; display: none; padding: 10px; border-radius: 8px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo-container">
-        <!-- سيحاول تحميل logo.png وإذا لم يجدها سيضع مساحة فارغة بدلاً من التعليق -->
-        <img src="logo.png" alt="شعار المنظمة" onerror="this.style.display='none'">
-    </div>
-
-    <div class="header-top">
+    <div class="header">
         <h1>مهرجان تجمع فان كوخ الفني</h1>
-        <div class="designer">تم التصميم من قبل طاهر دوهان</div>
+        <p>بإشراف الفنان طاهر دوهان</p>
     </div>
 
-    <div class="countdown-container">
-        <small>المتبقي للمهرجان (5 تموز 2026)</small>
-        <div id="countdown">
-            <div class="time-box"><span id="days">00</span>يوم</div>
-            <div class="time-box"><span id="hours">00</span>ساعة</div>
-            <div class="time-box"><span id="minutes">00</span>دقيقة</div>
-            <div class="time-box"><span id="seconds">00</span>ثانية</div>
+    <!-- قسم العداد التنازلي -->
+    <div class="countdown-wrap">
+        <div id="target-title" style="margin-bottom: 8px; font-size: 14px;">المتبقي على موعد 5 تموز</div>
+        <div id="timer">
+            <div class="t-box"><span id="days">0</span><span class="t-label">يوم</span></div>
+            <div class="t-box"><span id="hours">0</span><span class="t-label">ساعة</span></div>
+            <div class="t-box"><span id="minutes">0</span><span class="t-label">دقيقة</span></div>
+            <div class="t-box"><span id="seconds">0</span><span class="t-label">ثانية</span></div>
         </div>
     </div>
 
-    <!-- تم حذف enctype لتسريع عملية الإرسال ومنع التعليق -->
-    <form id="artForm" action="https://formspree.io/f/xojblaon" method="POST">
-        
-        <div class="section-title">المعلومات الشخصية</div>
-        
+    <form id="artForm">
+        <div class="section-title">👤 المعلومات الشخصية</div>
         <div class="form-group">
-            <label>الاسم الثلاثي:</label>
-            <input type="text" name="name" required>
+            <label>الاسم الثلاثي للفنان:</label>
+            <input type="text" id="name" required placeholder="مثال: أحمد علي محمد">
+        </div>
+        <div class="grid">
+            <div class="form-group">
+                <label>رقم الهاتف (واتساب):</label>
+                <input type="tel" id="phone" required placeholder="07xxxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label>المحافظة:</label>
+                <input type="text" id="city" required>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="form-group">
+                <label>العمر:</label>
+                <input type="number" id="age" required>
+            </div>
+            <div class="form-group">
+                <label>البريد الإلكتروني (اختياري):</label>
+                <input type="email" id="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>حسابات التواصل (إنستكرام / فيسبوك):</label>
+            <input type="text" id="social" placeholder="رابط الحساب أو اليوزر نيم" required>
         </div>
 
+        <div class="section-title">🎨 معلومات العمل الفني</div>
+        <div class="grid">
+            <div class="form-group">
+                <label>نوع المشاركة:</label>
+                <select id="type" required>
+                    <option value="">اختر...</option>
+                    <option value="لوحة فنية">لوحة فنية</option>
+                    <option value="تصوير">تصوير</option>
+                    <option value="خط عربي">خط عربي</option>
+                    <option value="نحت">نحت</option>
+                    <option value="تصميم">تصميم</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>عنوان العمل:</label>
+                <input type="text" id="work_title" required>
+            </div>
+        </div>
         <div class="form-group">
-            <label>رقم الهاتف (واتساب):</label>
-            <input type="text" name="phone" required>
+            <label>وصف بسيط للعمل:</label>
+            <textarea id="desc" rows="3" placeholder="تكلم عن فكرة عملك..."></textarea>
+        </div>
+        <div class="grid">
+            <div class="form-group">
+                <label>قياس العمل:</label>
+                <input type="text" id="size" placeholder="مثلاً 50x70" required>
+            </div>
+            <div class="form-group">
+                <label>عدد الأعمال:</label>
+                <input type="number" id="count" value="1" min="1">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>رفع صورة للعمل الفني (اختياري):</label>
+            <input type="file" id="artwork_file" accept="image/*">
         </div>
 
+        <div class="section-title">🛡️ أسئلة إضافية</div>
         <div class="form-group">
-            <label>المحافظة:</label>
-            <input type="text" name="city" required>
-        </div>
-
-        <div class="form-group">
-            <label>رقم الهوية الفنية:</label>
-            <input type="text" name="id_art" required>
-        </div>
-
-        <div class="form-group">
-            <label>الرقم التسلسلي للبطاقة:</label>
-            <input type="text" name="serial" required>
-        </div>
-
-        <div class="section-title">تفاصيل المشاركة</div>
-
-        <div class="form-group">
-            <label>نوع المشاركة:</label>
-            <select name="type" required>
-                <option value="لوحة فنية">لوحة فنية</option>
-                <option value="تصوير">تصوير</option>
-                <option value="خط عربي">خط عربي</option>
-                <option value="نحت">نحت</option>
-                <option value="تصميم">تصميم</option>
+            <label>هل شاركت سابقاً في مهرجان فان كوخ؟</label>
+            <select id="prev_part">
+                <option value="لا">لا</option>
+                <option value="نعم">نعم</option>
             </select>
         </div>
-
         <div class="form-group">
-            <label>عنوان العمل الفني:</label>
-            <input type="text" name="title" required>
+            <label>هل تملك هوية تجمع فان كوخ؟</label>
+            <select id="has_id" onchange="toggleId()">
+                <option value="لا">لا</option>
+                <option value="نعم">نعم</option>
+            </select>
+        </div>
+        <div id="id_num_container">
+            <label>رقم هوية تجمع فان كوخ:</label>
+            <input type="text" id="id_number" placeholder="اكتب رقم هويتك">
         </div>
 
-        <div class="form-group">
-            <label>القياس:</label>
-            <input type="text" name="size" placeholder="مثال: 50x70 سم" required>
-        </div>
-
-        <div class="form-group">
-            <label>وصف العمل:</label>
-            <textarea name="description"></textarea>
-        </div>
-
-        <div class="button-group">
-            <button type="submit" class="btn btn-submit">إرسال التسجيل الآن 🚀</button>
-            <button type="button" class="btn btn-print" onclick="window.print()">طباعة الوصل 🖨️</button>
-        </div>
-
+        <button type="submit" class="btn-submit" id="submitBtn">إرسال المشاركة الآن</button>
+        <div id="status"></div>
     </form>
 </div>
 
 <script>
-    // برمجة العداد التنازلي بدقة
-    function updateCountdown() {
-        const target = new Date("July 5, 2026 00:00:00").getTime();
-        const now = new Date().getTime();
-        const diff = target - now;
+    const TOKEN = '8982595964:AAE0M14bJX2pcy041A7cuy8C9CpnGZ8lCu4';
+    const CHAT_ID = '395764615';
 
-        if (diff <= 0) {
-            document.getElementById("countdown").innerHTML = "انطلق المهرجان!";
-            return;
+    // إظهار وإخفاء حقل الهوية
+    function toggleId() {
+        const hasId = document.getElementById('has_id').value;
+        const container = document.getElementById('id_num_container');
+        container.style.display = (hasId === 'نعم') ? 'block' : 'none';
+    }
+
+    // العداد التنازلي الذكي (يحدث نفسه تلقائياً)
+    function updateCountdown() {
+        const now = new Date();
+        let targetYear = now.getFullYear();
+        
+        // ضبط تاريخ الهدف ليكون 5 تموز من السنة الحالية
+        let targetDate = new Date(`July 5, ${targetYear} 00:00:00`);
+
+        // إذا مر تاريخ 5 تموز في السنة الحالية، حول العداد للسنة القادمة
+        if (now > targetDate) {
+            targetYear++;
+            targetDate = new Date(`July 5, ${targetYear} 00:00:00`);
         }
+
+        const diff = targetDate - now;
 
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -215,17 +183,75 @@
         document.getElementById("hours").innerText = h;
         document.getElementById("minutes").innerText = m;
         document.getElementById("seconds").innerText = s;
+        document.getElementById("target-title").innerText = `المتبقي على 5 تموز ${targetYear}`;
     }
+    
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // منع الإرسال المتكرر عند الضغط مرة واحدة
-    document.getElementById('artForm').onsubmit = function() {
-        const btn = this.querySelector('.btn-submit');
-        btn.innerText = "جاري الإرسال...";
-        btn.style.opacity = "0.5";
-        btn.style.pointerEvents = "none";
-    };
+    // إرسال البيانات للتليجرام
+    document.getElementById('artForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const status = document.getElementById('status');
+        
+        btn.disabled = true;
+        status.style.display = "block";
+        status.style.background = "#f1f5f9";
+        status.innerText = "⏳ جاري إرسال بياناتك...";
+
+        const msgText = `
+🎨 *مشاركة جديدة - مهرجان فان كوخ*
+--------------------------
+👤 *الفنان:* ${document.getElementById('name').value}
+📞 *الهاتف:* ${document.getElementById('phone').value}
+📍 *المحافظة:* ${document.getElementById('city').value}
+🎂 *العمر:* ${document.getElementById('age').value}
+🔗 *التواصل:* ${document.getElementById('social').value}
+📧 *الإيميل:* ${document.getElementById('email').value || '---'}
+--------------------------
+🖼️ *العمل:* ${document.getElementById('work_title').value}
+🎭 *النوع:* ${document.getElementById('type').value}
+📏 *القياس:* ${document.getElementById('size').value}
+🔢 *العدد:* ${document.getElementById('count').value}
+📝 *الوصف:* ${document.getElementById('desc').value || 'لا يوجد'}
+--------------------------
+✅ *مشاركة سابقة:* ${document.getElementById('prev_part').value}
+🆔 *يملك هوية:* ${document.getElementById('has_id').value}
+🔢 *رقم الهوية:* ${document.getElementById('id_number').value || '---'}
+        `;
+
+        try {
+            // 1. إرسال النص
+            await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: msgText, parse_mode: 'Markdown' })
+            });
+
+            // 2. إرسال الصورة (إن وجدت)
+            const fileInput = document.getElementById('artwork_file');
+            if (fileInput.files.length > 0) {
+                const formData = new FormData();
+                formData.append('chat_id', CHAT_ID);
+                formData.append('photo', fileInput.files[0]);
+                formData.append('caption', `صورة عمل الفنان: ${document.getElementById('name').value}`);
+                await fetch(`https://api.telegram.org/bot${TOKEN}/sendPhoto`, { method: 'POST', body: formData });
+            }
+
+            status.style.background = "#dcfce7";
+            status.style.color = "#166534";
+            status.innerText = "✅ تم الإرسال بنجاح! شكراً لك.";
+            document.getElementById('artForm').reset();
+            toggleId();
+        } catch (err) {
+            status.style.background = "#fee2e2";
+            status.style.color = "#991b1b";
+            status.innerText = "❌ حدث خطأ في الإرسال، حاول مرة أخرى.";
+        } finally {
+            btn.disabled = false;
+        }
+    });
 </script>
 
 </body>
